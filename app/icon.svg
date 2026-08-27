@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Source of truth for the app icon. Rasterised to mdlive.icns by
+       build-icon.sh. The 100px transparent margin and the 185px corner radius
+       follow Apple's macOS app icon grid, so it sits correctly next to system
+       icons in the Dock and in Finder. -->
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b4757"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".14"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#body)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#sheen)"/>
+  <rect x="100.5" y="100.5" width="823" height="823" rx="184.5"
+        fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="3"/>
+
+  <!-- The Markdown mark (dcurtis/markdown-mark), scaled 2.5x from its native
+       208x128 box and centred slightly above middle to leave room for the
+       live indicator. -->
+  <g transform="translate(252, 330) scale(2.5)">
+    <rect x="5" y="5" width="198" height="118" ry="10"
+          fill="none" stroke="#ffffff" stroke-width="10"/>
+    <path d="M30 98V30h20l20 25 20-25h20v68H90V59L70 84 50 59v39zM155 98l-30-33h15V30h20v35h15z"
+          fill="#ffffff"/>
+  </g>
+
+  <!-- Live indicator: the whole point of the app is that the render is never
+       stale, so the icon says so. -->
+  <circle cx="512" cy="762" r="30" fill="#161b22" fill-opacity=".9"/>
+  <circle cx="512" cy="762" r="22" fill="#3fb950"/>
+</svg>

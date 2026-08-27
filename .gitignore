@@ -1,0 +1,9 @@
+# Vendored browser libraries: optional, fetched by the user for offline use.
+vendor/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
