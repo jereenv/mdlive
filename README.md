@@ -4,6 +4,18 @@ A live-reloading Markdown viewer for macOS. Double-click a `.md` file and it
 opens rendered in your browser, GitHub-styled — and it **re-renders itself the
 moment the file changes on disk**. No reopening, no refreshing.
 
+<!-- TODO(owner): record a short screen capture of editing a .md file in one
+     window while this re-renders live in the browser next to it, convert to
+     GIF, and drop it here, e.g.:
+     ![mdlive re-rendering a file as it's edited](docs/demo.gif) -->
+
+The problem this solves: you open a `.md` file to read it — notes, a design
+doc, an agent's scratch output — and something keeps changing it out from
+under you (you, in another editor; a formatter; a coding agent writing to
+disk). Every other viewer makes you flip back and hit reload. mdlive polls the
+file's mtime a few times a second and reflows only the document's HTML on
+change, so it just stays current while you leave it open in a spare window.
+
 Built for the case where something else is rewriting the file while you read
 it: an editor, a formatter, or a code-generation agent.
 
@@ -29,8 +41,14 @@ That installs three things, all inside your home folder, no `sudo`:
 | `mdlive.app` | `~/Applications/mdlive.app` |
 | Default `.md` handler | LaunchServices association |
 
-Pass `--no-default` to install without taking over `.md` files. Remove
-everything with `./uninstall.sh`.
+Pass `--no-default` to install without taking over `.md` files.
+
+Remove everything with `./uninstall.sh`: it stops any running `mdlive`
+servers, deletes the `mdlive` symlink and `mdlive.app`, unregisters the app
+from LaunchServices, and clears the instance-registry cache under
+`~/Library/Caches/mdlive`. It leaves this repository and your `.md` files
+untouched; macOS may still remember mdlive as the last app used for `.md`
+files until you pick another one (Get Info → Open with).
 
 ### Becoming the default app
 
